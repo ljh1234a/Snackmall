@@ -1,4 +1,4 @@
-# Spring Boot Snack World 서비스
+# Spring Boot SnackMall Project
 
 - Snack World는 Spring Boot를 이용하여 만든 다양한 스낵(먹거리)을 검색하고 구매할 수 있는 온라인 스낵몰 서비스입니다.
 - 관리자
@@ -7,7 +7,7 @@
   - 장바구니, 상품 구매, 마이 페이지에서 구매 내역 조회, 비밀번호 변경, 캐시 충전
 - 비회원
   - 상품 조회, 검색, 리뷰 페이지 조회만 가능
-
+ 
 ## Dependencies
 - Spring Data JDBC
 - Thymeleaf
