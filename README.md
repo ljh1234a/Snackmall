@@ -55,46 +55,46 @@
 - 비밀번호와 비밀번호 확인이 일치해야 합니다.
 - 모든 필드를 필수로 입력해야 합니다.
     
-![2.JPG](https://github.com/ljh1234a/Snackmall/blob/main/2.JPG)
+![2.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/2.JPG)
 
 ### 로그인
 - 아이디 또는 비밀번호를 잘못 입력하면 빨간색으로 메시지를 띄웁니다.
     
-![3.JPG](https://github.com/ljh1234a/Snackmall/blob/main/3.JPG)
-![4.JPG](https://github.com/ljh1234a/Snackmall/blob/main/4.JPG)
+![3.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/3.JPG)
+![4.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/4.JPG)
 
 ### 비밀번호 변경
 - 로그인한 회원은 마이 페이지의 프로필에서 비밀번호를 변경할 수 있습니다.
 
-![10.JPG](https://github.com/ljh1234a/Snackmall/blob/main/10.JPG)
-![11.JPG](https://github.com/ljh1234a/Snackmall/blob/main/11.JPG)
+![10.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/10.JPG)
+![11.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/11.JPG)
 
 ### 장바구니
 - 상품을 클릭하여 상품을 장바구니에 넣을 수 있습니다.
   
-![5.JPG](https://github.com/ljh1234a/Snackmall/blob/main/5.JPG)
+![5.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/5.JPG)
 
 - 장바구니에서 상품을 구매할 수도 있습니다.
   
-![6.JPG](https://github.com/ljh1234a/Snackmall/blob/main/6.JPG)
+![6.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/6.JPG)
 
 - 상품을 선택하지 않고 구매를 누르면 경고창이 뜹니다.
 
-![12.JPG](https://github.com/ljh1234a/Snackmall/blob/main/12.JPG)
+![12.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/12.JPG)
 
 - 구매하려는 상품의 총 가격보다 보유 금액이 적다면 경고창이 뜹니다.
 
-![13.JPG](https://github.com/ljh1234a/Snackmall/blob/main/13.JPG)
+![13.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/13.JPG)
 
 - 구매한 상품은 마이 페이지의 구매 목록에 저장됩니다.
   
-![7.JPG](https://github.com/ljh1234a/Snackmall/blob/main/7.JPG)
+![7.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/7.JPG)
 
 ### 리뷰
 - 상품을 구매한 회원은 구매 목록 페이지에서 리뷰를 작성할 수 있습니다.
   
-![8.JPG](https://github.com/ljh1234a/Snackmall/blob/main/8.JPG)
+![8.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/8.JPG)
 
 - 리뷰 페이지에서 구매자들이 작성한 리뷰를 확인할 수 있습니다.
 
-![9.JPG](https://github.com/ljh1234a/Snackmall/blob/main/9.JPG)
+![9.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/9.JPG)
