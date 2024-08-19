@@ -100,8 +100,38 @@
 ![9.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/9.JPG)
 
 ### 재고추가
-- 관리자로 로그인하면 홈에서 바로 해당 상품의 재고를 추가할 수 있습니다.
+- 관리자 계정에서만 홈에서 바로 해당 상품의 재고를 추가할 수 있습니다.
 
 ![14.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/14.JPG)
 ![15.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/15.JPG)
 ![16.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/16.JPG)
+
+### 상품추가
+- 관리자 계정에서만 상단의 상품추가를 눌러서 상품을 추가할 수 있습니다.
+  
+![17.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/17.JPG)
+
+### 상품관리
+- 상품을 추가하면 상품관리 페이지로 이동하며 이 페이지에서 상품을 수정 또는 삭제할 수 있습니다.
+  
+![18.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/18.JPG)
+![19.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/19.JPG)
+![20.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/20.JPG)
+
+### 회원목록
+- 관리자 계정에서만 회원들의 정보를 확인할 수 있습니다.
+  
+![21.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/21.JPG)
+
+### 판매 목록
+- 관리자 계정에서만 마이 페이지의 판매 목록 페이지에서 판매된 상품 내역을 확인할 수 있습니다.
+  
+![22.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/22.JPG)
+
+### 공지사항
+- 관리자 계정에서만 공지사항을 작성할 수 있습니다. 확인은 누구나 가능합니다.
+
+![23.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/23.JPG)
+![24.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/24.JPG)
+![25.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/25.JPG)
+![26.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/26.JPG)
