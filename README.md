@@ -27,9 +27,9 @@
 
 ## 기술 스택
 - 프론트엔드
-  - HTML, CSS, JavaScriptm Thymeleaf
+  - HTML, CSS, JavaScript, Thymeleaf
 - 백엔드
-  - Java, Spring Boot, Spring Data JDBC
+  - Java, Spring Boot
 - 데이터베이스
   - MySQL, MySQL Workbench
   - ID: jhl9812181
