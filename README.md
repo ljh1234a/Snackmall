@@ -48,7 +48,12 @@
 
 ## View Page
 - 회원가입
+  - 이메일 인증이 필수입니다.
+  - 이미 가입된 아이디는 사용이 불가능합니다.
+  - 비밀번호는 7~15자리로 설정해야 합니다.
+  - 비밀번호와 비밀번호 확인이 일치해야 합니다.
 ![2.JPG](https://github.com/ljh1234a/Snackmall/blob/main/2.JPG)
 
 - 로그인
-
+  - 아이디 또는 비밀번호를 잘못 입력하면 빨간색으로 메시지를 띄웁니다.
+![3.JPG](https://github.com/ljh1234a/Snackmall/blob/main/3.JPG)
