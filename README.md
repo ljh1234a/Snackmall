@@ -19,11 +19,11 @@
 - Java Mail Sender
 
 ## 개발 환경
-- IDE: IntelliJ
-- Spring Boot: 3.3.2
-- Java 버전: JDK 17
-- 데이터베이스: MySQL
-- 빌드 도구: Gradle
+- IDE : IntelliJ
+- Spring Boot Version : 3.3.2
+- JDK Version: JDK 17
+- Database : MySQL
+- Build Tools : Gradle
 
 ## 기술 스택
 - 프론트엔드
