@@ -21,7 +21,7 @@
 ## 개발 환경
 - IDE : IntelliJ
 - Spring Boot 버전 : 3.3.2
-- JDK 버전: JDK 17
+- JDK 버전 : JDK 17
 - 데이터베이스 : MySQL
 - 빌드 도구 : Gradle
 
