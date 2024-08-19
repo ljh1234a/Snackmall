@@ -39,7 +39,7 @@ Snack World는 Spring Boot를 이용하여 만든 사용자가 다양한 스낵(
 - **빌드 도구**: Gradle
 - **기타 도구**: IntelliJ IDEA, Git, GitHub
 
-## 데이터베이스(MySQL)
+## MySQL
 - **ID**: jhl9812181
 - **Password**: lee2863!
 - **183.111.242.55:3306**
