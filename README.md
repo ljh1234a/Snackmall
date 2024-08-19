@@ -64,3 +64,9 @@
 
 **장바구니, 상품 구매**
 - 상품을 클릭하여 상품을 장바구니에 넣거나 바로 구매할 수 있습니다.
+- 장바구니에서 상품을 구매할 수도 있습니다.
+- 구매한 상품은 구매 목록에 저장됩니다.
+
+![5.JPG](https://github.com/ljh1234a/Snackmall/blob/main/5.JPG)
+![6.JPG](https://github.com/ljh1234a/Snackmall/blob/main/6.JPG)
+![7.JPG](https://github.com/ljh1234a/Snackmall/blob/main/7.JPG)
