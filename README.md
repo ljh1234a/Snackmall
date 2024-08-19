@@ -36,11 +36,11 @@
   - Password: lee2863!
   - 183.111.242.55:3306
 
-# DB Table
-- shop_user
-- product
-- cart
-- cart_item
-- shopping_list
-- notice_board
+# 데이터베이스 구성
+- shop_user: 회원
+- product: 상품
+- cart: 장바구니 회원
+- cart_item: 장바구니 상품
+- shopping_list: 구매 내역
+- notice_board: 공지사항 게시판
 
