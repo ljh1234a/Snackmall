@@ -19,7 +19,7 @@
 - Java Mail Sender
 
 ## 개발 환경
-- 통합개발환경(IDE): IntelliJ
+- IDE: IntelliJ
 - Spring Boot: 3.3.2
 - Java 버전: JDK 17
 - 데이터베이스: MySQL
