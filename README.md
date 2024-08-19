@@ -3,13 +3,6 @@
 Snack World는 SpringBoot를 이용하여 만든 사용자가 다양한 스낵(먹거리)을 검색하고 구매할 수 있는 온라인 쇼핑몰 서비스입니다.
 
 ## 주요 기능
-## 기술 스택
-- **백엔드**: Java, Spring Boot
-- **데이터베이스**: MySQL
-- **빌드 도구**: Maven
-- **API 문서화**: Swagger
-- **보안**: Spring Security, JWT
-- **기타 도구**: IntelliJ IDEA, Git, GitHub
 
 - **상품 조회**: Snack World의 전체, 인기상품, 카테고리별 상품 조회 또는 검색 가능
 - **회원 관리**: 회원가입, 로그인, 마이페이지의 프로필에서 비밀번호 변경 가능
