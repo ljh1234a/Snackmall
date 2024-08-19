@@ -18,6 +18,13 @@
 - Spring Web
 - Java Mail Sender
 
+## 개발 환경
+- 통합개발환경(IDE): IntelliJ
+- Spring Boot: 3.3.2
+- Java 버전: JDK 17
+- 데이터베이스: MySQL
+- 빌드 도구: Gradle
+
 ## 기술 스택
 - 프론트엔드
   - HTML, CSS, JavaScriptm Thymeleaf
