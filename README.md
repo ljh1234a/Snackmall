@@ -38,11 +38,17 @@
   - Password : lee2863!
   - 183.111.242.55:3306
 
-# 데이터베이스 구성
+## 데이터베이스 구성
 - shop_user : 회원
 - product : 상품
 - cart : 장바구니를 이용한 회원
 - cart_item : 장바구니에 등록된 상품
 - shopping_list : 구매 내역, 판매 내역
 - notice_board : 공지사항 게시판
+
+## View Page
+- 회원가입
+![2.JPG](https://github.com/ljh1234a/Snackmall/blob/main/2.JPG)
+
+- 로그인
 
