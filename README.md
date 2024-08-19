@@ -63,6 +63,12 @@
 ![3.JPG](https://github.com/ljh1234a/Snackmall/blob/main/3.JPG)
 ![4.JPG](https://github.com/ljh1234a/Snackmall/blob/main/4.JPG)
 
+### 비밀번호 변경
+- 로그인한 회원은 마이 페이지의 프로필에서 비밀번호를 변경할 수 있습니다.
+
+![10.JPG](https://github.com/ljh1234a/Snackmall/blob/main/10.JPG)
+![11.JPG](https://github.com/ljh1234a/Snackmall/blob/main/11.JPG)
+
 ### 장바구니
 - 상품을 클릭하여 상품을 장바구니에 넣을 수 있습니다.
   
