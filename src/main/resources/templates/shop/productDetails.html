@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>제품 상세보기</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/productDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="header">
+    <div class="header-top">
+        <div class="right">
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <a href="/shop/admin/product/new">상품추가</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <a href="/shop/admin/product">상품관리</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <a href="/shop/admin/users">회원목록</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <span th:text="${session.user.username} + '님'"></span>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <span th:text="'보유금액: ' + ${#numbers.formatInteger(userMoney, 3, 'COMMA')} + '원'"></span>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <span th:text="${session.user.username}"></span>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/noticeBoard">공지사항</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/showReviews">리뷰</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <span>
+                    <a href="/shop/cart" id="cart">장바구니
+                    <span th:unless="${cartItems.size() == 0}" th:text="${cartItems.size()}" class="cartSize"></span>
+                    </a>
+                </span>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <div class="dropdown">
+                    <span>마이페이지</span>
+                    <div class="dropdown-content" id="myPageUser">
+                        <a href="/shop/profile">프로필</a>
+                        <a href="/shop/shoppingList">구매목록</a>
+                        <a href="/shop/logout">로그아웃</a>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <div class="dropdown">
+                    <span>마이페이지</span>
+                    <div class="dropdown-content" id="myPageAdmin">
+                        <a href="/shop/profile">프로필</a>
+                        <a href="/shop/admin/salesList">판매목록</a>
+                        <a href="/shop/logout">로그아웃</a>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${session.user == null}" class="topMenu">
+                <a href="/shop/login">로그인</a>
+                <a href="/shop/register">회원가입</a>
+            </div>
+        </div>
+    </div>
+    <div class="header-middle">
+        <div class="top">
+            <a href="/shop" id="home">
+                <i class="fas fa-cookie-bite"></i>
+                <h1>Snack World</h1>
+                <i class="fas fa-ice-cream"></i>
+            </a>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <div class="left">
+            <div class="topMenu">
+                <a href="/shop" id="all">전체</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/popular" class="category">인기상품</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/snack" class="category">과자</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/drink" class="category">음료수</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/iceCream" class="category">아이스크림</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/chicken" class="category">치킨</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/pizza" class="category">피자</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/hamburger" class="category">햄버거</a>
+            </div>
+            <div class="topMenu">
+                <div class="center">
+                    <form th:action="@{/shop/search}" method="get" id="searchForm">
+                        <input type="text" name="productName" placeholder="Search" id="searchInput">
+                        <button type="submit">
+                            <img src="/img/search.jpg">
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="border-top"></div>
+<div class="container">
+    <div class="product-container">
+        <img th:src="'data:image/png;base64,' + ${product.imageUrl}" alt="상품 이미지">
+        <div class="product">
+            <div class="product-info">
+                <p>
+                    <span th:text="${product.name}" style="font-weight: bold; font-size: 24px;"></span>
+                    <i th:if="${product.avrRating}" class="fa-solid fa-star" style="color: #FFD700; font-size: 18px;"></i>
+                    <span th:if="${product.avrRating}" th:text="${product.avrRating}" style="font-size: 21px"></span>
+                </p>
+                <p th:text="${#numbers.formatInteger(product.price, 3, 'COMMA')} + '원'"></p>
+                <p th:text="'재고: ' + ${product.stock}"></p>
+            </div>
+            <form id="cartForm" action="/shop/cart/add" method="post" style="display: none;">
+                <input type="hidden" name="productId" th:value="${product.id}">
+                <input type="hidden" name="quantity" id="cartQuantity" value="1">
+            </form>
+            <form id="purchaseForm" action="/shop/product/buy" method="post" style="display: none;">
+                <input type="hidden" name="productId" th:value="${product.id}">
+                <input type="hidden" name="quantity" id="purchaseQuantity" value="1">
+            </form>
+            <div class="quantityForm">
+                <label for="quantity">수량</label>
+                <div class="quantity">
+                    <button type="button" id="minusBtn">-</button>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="${product.stock}" required>
+                    <button type="button" id="plusBtn">+</button>
+                    <span id="totalPrice">0원</span>
+                </div>
+            </div>
+            <div class="cartBuy">
+                <button type="button" id="cartBtn">장바구니</button>
+                <button type="button" id="buyBtn">구매하기</button>
+            </div>
+        </div>
+        <script th:inline="javascript">
+            var isLogin = [[${session.user != null}]];
+            var leftItemCount = [[${product.stock}]];
+            var userMoney = [[${userMoney}]];
+            var productPrice = [[${product.price}]];
+
+            const minusBtn = document.getElementById("minusBtn");
+            const plusBtn = document.getElementById("plusBtn");
+            const quantityInput = document.getElementById("quantity");
+            const totalPriceElement = document.getElementById("totalPrice");
+            const cartForm = document.getElementById("cartForm");
+            const purchaseForm = document.getElementById("purchaseForm");
+            const cartBtn = document.getElementById("cartBtn");
+            const buyBtn = document.getElementById("buyBtn");
+
+            function updateTotalPrice() {
+                var quantity = parseInt(quantityInput.value);
+                var totalPrice = productPrice * quantity;
+                totalPriceElement.innerText = totalPrice.toLocaleString() + '원';
+            }
+
+            minusBtn.addEventListener("click", function() {
+                var currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                    updateTotalPrice();
+                }
+            });
+
+            plusBtn.addEventListener("click", function() {
+                var currentValue = parseInt(quantityInput.value);
+                if (currentValue < leftItemCount) {
+                    quantityInput.value = currentValue + 1;
+                    updateTotalPrice();
+                }
+            });
+
+            quantityInput.addEventListener("change", function() {
+                updateTotalPrice();
+            });
+
+            cartBtn.addEventListener("click", function(event) {
+                if (!isLogin) {
+                    alert("로그인 후 이용하실 수 있습니다.");
+                    window.location.href = "/shop/login";
+                    event.preventDefault();
+                    return;
+                }
+
+                var quantity = parseInt(quantityInput.value);
+                if (isNaN(quantity) || quantity < 1 || quantity > leftItemCount) {
+                    alert("재고가 부족합니다.");
+                } else {
+                    document.getElementById("cartQuantity").value = quantity;
+                    cartForm.submit();
+                    alert("해당 상품이 장바구니에 등록되었습니다.");
+                }
+            });
+
+            buyBtn.addEventListener("click", function(event) {
+                if (!isLogin) {
+                    alert("로그인 후 이용하실 수 있습니다.");
+                    window.location.href = "/shop/login";
+                    event.preventDefault();
+                    return;
+                }
+
+                var quantity = parseInt(quantityInput.value);
+                var totalPrice = productPrice * quantity;
+
+                if (isNaN(quantity)) {
+                    alert("숫자만 입력해주세요.");
+                    event.preventDefault();
+                } else if (quantity > leftItemCount) {
+                    alert("재고가 부족합니다.");
+                    event.preventDefault();
+                } else if (totalPrice > userMoney) {
+                    alert("잔액이 부족합니다.");
+                    event.preventDefault();
+                } else {
+                    var isBuy = confirm("해당 상품을 구매하시겠습니까?");
+                    if (isBuy) {
+                        document.getElementById("purchaseQuantity").value = quantity;
+                        purchaseForm.submit();
+                        alert("상품 구매가 완료되었습니다.");
+                    }
+                    event.preventDefault();
+                }
+            });
+            updateTotalPrice();
+        </script>
+    </div>
+</div>
+<div th:if="${reviews.size() > 0}" style="color: #444; text-align: center;">
+    <h2 style="margin: 20px 0">구매후기</h2>
+    <table>
+        <tr>
+            <th>구매자</th>
+            <th>리뷰내용</th>
+            <th>평점</th>
+            <th>작성일</th>
+        </tr>
+        <tr th:each="review : ${reviews}">
+            <td th:text="${review.username}"></td>
+            <td th:text="${review.content}"></td>
+            <td class="review-rating">
+                <span class="rating-stars" th:classappend="'rating-' + ${review.rating}"></span>
+            </td>
+            <td th:text="${#temporals.format(review.createDate, 'yyyy-MM-dd')}" class="review-date"></td>
+        </tr>
+    </table>
+</div>
+<div class="footer">
+    <p>LeeJunHo 2024 SpringBoot SnackMall</p>
+</div>
+</body>
+</html>

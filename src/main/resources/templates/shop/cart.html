@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="header">
+    <div class="header-top">
+        <div class="right">
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <span th:text="${session.user.username} + '님'"></span>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <span th:text="'보유금액: ' + ${#numbers.formatInteger(userMoney, 3, 'COMMA')} + '원'"></span>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/noticeBoard">공지사항</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/showReviews">리뷰</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <span>
+                    <a href="/shop/cart" id="cart">장바구니
+                    <span th:unless="${cart == null}" th:text="${cartItems.size()}" class="cartSize"></span>
+                    </a>
+                </span>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <div class="dropdown">
+                    <span>마이페이지</span>
+                    <div class="dropdown-content" id="myPageUser">
+                        <a href="/shop/profile">프로필</a>
+                        <a href="/shop/shoppingList">구매목록</a>
+                        <a href="/shop/logout">로그아웃</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-middle">
+        <div class="top">
+            <a href="/shop" id="home">
+                <i class="fas fa-cookie-bite"></i>
+                <h1>Snack World</h1>
+                <i class="fas fa-ice-cream"></i>
+            </a>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <div class="left">
+            <div class="topMenu">
+                <a href="/shop" id="all">전체</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/popular" class="category">인기상품</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/snack" class="category">과자</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/drink" class="category">음료수</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/iceCream" class="category">아이스크림</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/chicken" class="category">치킨</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/pizza" class="category">피자</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/hamburger" class="category">햄버거</a>
+            </div>
+            <div class="topMenu">
+                <div class="center">
+                    <form th:action="@{/shop/search}" method="get" id="searchForm">
+                        <input type="text" name="productName" placeholder="Search" id="searchInput">
+                        <button type="submit">
+                            <img src="/img/search.jpg">
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="border-top"></div>
+<div class="container">
+    <h1>장바구니</h1>
+    <div th:if="${cartItems != null}" class="clearCart">
+        <p>상품목록(<span th:text="${cartItems.size()}"></span>)</p>
+        <button type="button" class="clearCartBtn">장바구니 비우기</button>
+    </div>
+    <div th:if="${cartItems == null}" class="clearCart">
+        <p>상품목록(0)</p>
+        <button type="button" class="clearCartBtn">장바구니 비우기</button>
+    </div>
+    <form id="purchaseSelectedForm" th:action="@{/shop/cart/purchaseSelected}" method="post">
+        <table>
+            <tr>
+                <th>
+                    <input type="checkbox" id="selectAll">
+                </th>
+                <th>이미지</th>
+                <th>상품명</th>
+                <th>가격</th>
+                <th>수량</th>
+                <th>합계</th>
+                <th>삭제</th>
+            </tr>
+            <tr th:each="item : ${cartItems}">
+                <td>
+                    <input type="checkbox" name="selectedItems" th:value="${item.id}" class="item-checkbox">
+                </td>
+                <td>
+                    <img th:src="'data:image/png;base64,' + ${item.productImageUrl}" alt="상품 이미지">
+                </td>
+                <td th:text="${item.productName}"></td>
+                <td th:text="${#numbers.formatInteger(item.productPrice, 3, 'COMMA') + '원'}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td th:text="${#numbers.formatInteger(item.productPrice * item.quantity, 3, 'COMMA') + '원'}"></td>
+                <td>
+                    <button type="button" class="removeBtn" th:data-item-id="${item.id}">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <div class="cart-summary">
+            <div class="summary-info" style="font-weight: bold">
+                <p id="userMoney" th:text="'보유금액: ' + ${#numbers.formatInteger(userMoney, 3, 'COMMA')} + '원'" style="display: none;"></p>
+                <p id="totalPrice">합계: 0원</p>
+            </div>
+        </div>
+        <div class="button-container">
+            <button type="button" id="buySelectedBtn">선택 상품 구매</button>
+            <button type="button" id="buyAllBtn">전체 상품 구매</button>
+        </div>
+    </form>
+    <form id="removeForm" action="/shop/cart/remove" method="post" style="display: none;">
+        <input type="hidden" name="itemId" id="removeItemId">
+    </form>
+    <form id="purchaseAllForm" action="/shop/cart/purchaseAll" method="post" style="display: none;"></form>
+    <form id="clearCartForm" action="/shop/cart/clear" method="post" style="display: none;"></form>
+</div>
+<div class="footer">
+    <p>LeeJunHo 2024 SpringBoot SnackMall</p>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const itemCheckboxes = document.querySelectorAll(".item-checkbox");
+        const selectAllCheckbox = document.getElementById("selectAll");
+        const totalPrice = document.getElementById("totalPrice");
+        const userMoney = parseInt(document.getElementById("userMoney").textContent.replace(/[^0-9]/g, ""), 10);
+
+        function updateSummary() {
+            let total = 0;
+            itemCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const row = checkbox.closest("tr");
+                    const price = parseInt(row.querySelector("td:nth-child(6)").textContent.replace(/[^0-9]/g, ""), 10);
+                    total += price;
+                }
+            });
+            totalPrice.textContent = `합계: ${total.toLocaleString()}원`;
+        }
+
+        function getCartTotal() {
+            let sumPrice = 0;
+            const rows = document.querySelectorAll("table > tbody > tr");
+            rows.forEach(row => {
+                const priceCell = row.querySelector("td:nth-child(6)");
+                if (priceCell) {
+                    const price = parseInt(priceCell.textContent.replace(/[^0-9]/g, ""), 10);
+                    sumPrice += price;
+                }
+            });
+            return sumPrice;
+        }
+
+        selectAllCheckbox.addEventListener("change", function() {
+            itemCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+            updateSummary();
+        });
+
+        itemCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener("change", updateSummary);
+        });
+
+        document.getElementById("buySelectedBtn").addEventListener("click", function() {
+            const items = document.querySelectorAll("input[name='selectedItems']");
+            const selectedItems = document.querySelectorAll("input[name='selectedItems']:checked");
+            const totalSelected = Array.from(selectedItems).reduce((acc, item) => {
+                const row = item.closest("tr");
+                const price = parseInt(row.querySelector("td:nth-child(6)").textContent.replace(/[^0-9]/g, ""), 10);
+                acc += price;
+                return acc;
+            }, 0);
+
+            if (items.length === 0) {
+                alert("장바구니에 상품이 없습니다.");
+            } else if (selectedItems.length === 0) {
+                alert("구매할 상품을 선택해주세요.");
+            } else if (totalSelected > userMoney) {
+                alert("보유 금액이 부족합니다.");
+            } else if (confirm("선택한 상품을 구매하시겠습니까?")) {
+                document.getElementById("purchaseSelectedForm").submit();
+                alert("상품 구매가 완료되었습니다.");
+            }
+        });
+
+        document.getElementById("buyAllBtn").addEventListener("click", function() {
+            const items = document.querySelectorAll("input[name='selectedItems']");
+            const totalCart = getCartTotal();
+
+            if (items.length === 0) {
+                alert("장바구니에 상품이 없습니다.");
+            } else if (totalCart > userMoney) {
+                alert("보유 금액이 부족합니다.");
+            } else if (confirm("장바구니의 모든 상품을 구매하시겠습니까?")) {
+                document.getElementById("purchaseAllForm").submit();
+                alert("상품 구매가 완료되었습니다.");
+            }
+        });
+
+        document.querySelectorAll(".clearCartBtn").forEach(button => {
+            button.addEventListener("click", function() {
+                if (confirm("장바구니를 비우시겠습니까?")) {
+                    document.getElementById("clearCartForm").submit();
+                }
+            });
+        });
+
+        document.querySelectorAll(".removeBtn").forEach(button => {
+            button.addEventListener("click", function() {
+                const itemId = this.getAttribute('data-item-id');
+
+                if (confirm("해당 상품을 장바구니에서 삭제하시겠습니까?")) {
+                    const removeForm = document.getElementById("removeForm");
+                    removeForm.querySelector("#removeItemId").value = itemId;
+                    removeForm.submit();
+                }
+            });
+        });
+
+        updateSummary();
+    });
+</script>
+</body>
+</html>

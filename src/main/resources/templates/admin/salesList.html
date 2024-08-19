@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>판매 목록</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/salesList.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="header">
+    <div class="header-top">
+        <div class="right">
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <a href="/shop/admin/product/new">상품추가</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <a href="/shop/admin/product">상품관리</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <a href="/shop/admin/users">회원목록</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <span th:text="${session.user.username}"></span>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/noticeBoard">공지사항</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/showReviews">리뷰</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <div class="dropdown">
+                    <span>마이페이지</span>
+                    <div class="dropdown-content" id="myPageAdmin">
+                        <a href="/shop/profile">프로필</a>
+                        <a href="/shop/admin/salesList">판매목록</a>
+                        <a href="/shop/logout">로그아웃</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-middle">
+        <div class="top">
+            <a href="/shop" id="home">
+                <i class="fas fa-cookie-bite"></i>
+                <h1>Snack World</h1>
+                <i class="fas fa-ice-cream"></i>
+            </a>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <div class="left">
+            <div class="topMenu">
+                <a href="/shop" id="all">전체</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/popular" class="category">인기상품</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/snack" class="category">과자</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/drink" class="category">음료수</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/iceCream" class="category">아이스크림</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/chicken" class="category">치킨</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/pizza" class="category">피자</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/hamburger" class="category">햄버거</a>
+            </div>
+            <div class="topMenu">
+                <div class="center">
+                    <form th:action="@{/shop/search}" method="get" id="searchForm">
+                        <input type="text" name="productName" placeholder="Search" id="searchInput">
+                        <button type="submit">
+                            <img src="/img/search.jpg">
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="border-top"></div>
+<div class="container">
+    <h1>판매 목록</h1>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>구매자</th>
+            <th>상품명</th>
+            <th>수량</th>
+            <th>총 금액</th>
+            <th>구매일</th>
+        </tr>
+        <tr th:each="sale : ${salesLists}">
+            <td th:text="${sale.id}"></td>
+            <td th:text="${sale.username}"></td>
+            <td th:text="${sale.productName}"></td>
+            <td th:text="${sale.quantity}"></td>
+            <td th:if="${sale.totalPrice < 1000}" th:text="${sale.totalPrice} + '원'"></td>
+            <td th:if="${sale.totalPrice >= 1000}" th:text="${#numbers.formatInteger(sale.totalPrice, 3, 'COMMA')} + '원'"></td>
+            <td th:text="${#temporals.format(sale.shoppingDate, 'yyyy-MM-dd HH:mm')}"></td>
+        </tr>
+    </table>
+    <div class="pagination">
+        <a th:if="${hasPreviousPageGroup}"
+           th:href="@{/shop/admin/salesList(page=${previousPageGroup}, size=${size})}">이전</a>
+        <a th:each="i : ${#numbers.sequence(startPage, endPage - 1)}"
+           th:href="@{/shop/admin/salesList(page=${i}, size=${size})}"
+           th:text="${i + 1}"
+           th:classappend="${i == currentPage} ? 'active' : ''"></a>
+        <a th:if="${hasNextPageGroup}"
+           th:href="@{/shop/admin/salesList(page=${nextPageGroup}, size=${size})}">다음</a>
+    </div>
+</div>
+<div class="footer">
+    <p>LeeJunHo 2024 SpringBoot SnackMall</p>
+</div>
+</body>
+</html>

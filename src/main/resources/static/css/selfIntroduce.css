@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #21252a;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.intro-container h1 {
+    margin-bottom: 15px;
+}
+
+.intro-container h2 {
+    font-weight: normal;
+}
+
+.intro {
+    margin-top: 30px;
+    border-top: 2px solid #21252a;
+}
+
+.intro h3 {
+    margin: 20px 0 25px 0;
+}

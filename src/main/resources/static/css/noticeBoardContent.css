@@ -1,0 +1,155 @@
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+    position: relative;
+    color #333;
+    height: 600px;
+}
+
+.container h2 {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.btn {
+    display: flex;
+    position: absolute;
+    top: 31px;
+    right: 0;
+}
+
+.content-top {
+    display: flex;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.content-middle {
+    margin-top: 20px;
+}
+
+.content-bottom {
+    position: absolute;
+    bottom: 0;
+    font-size: 18px;
+    width: 100%;
+}
+
+.content-bottom .next {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.content-bottom .prev,
+.content-bottom .next {
+    padding: 10px 0;
+    width: 100%;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-bottom > div > a {
+    display: block;
+    color: #333;
+    width: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.content-bottom > div > a > span:nth-child(2) {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.content-bottom > div:hover {
+    background-color: #eee;
+    transition: .4s;
+}
+
+.author {
+    margin-left: 10px;
+}
+
+.author, .title {
+    line-height: 40px;
+}
+
+.date {
+    margin-left: auto;
+    margin-right: 10px;
+    color: #888;
+    font-size: 16px;
+    text-align: center;
+}
+
+.title {
+    margin-left: 20px;
+}
+
+.content {
+    margin-left: 10px;
+}
+
+.title,
+.content {
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.createDate {
+    position: absolute;
+    right: 10px;
+    font-size: 16px;
+    color: #888;
+}
+
+#editBtn,
+#delBtn,
+#backBtn {
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#editBtn {
+    background-color: #242424;
+    color: #fff;
+}
+
+#editBtn:hover {
+    background-color: black;
+    transition: .4s;
+}
+
+#delBtn,
+#backBtn {
+    background-color: #fff;
+    color: #242424;
+    border: 1px solid #ddd;
+}
+
+#delBtn:hover,
+#backBtn:hover {
+    border: 1px solid black;
+    transition: .4s;
+}
+
+.footer {
+    margin-top: auto;
+}

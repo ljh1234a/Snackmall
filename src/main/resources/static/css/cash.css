@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 30px auto 0 auto;
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.container h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.cashForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.cashForm input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+}
+
+#profileBtn, #cashBtn {
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#profileBtn {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font-size: 13.33px;
+    background-color: #fff;
+    color: #242424;
+    border: 1px solid #ddd;
+}
+
+#profileBtn:hover {
+    border: 1px solid black;
+    transition: .4s;
+}
+
+#cashBtn {
+    background-color: #242424;
+    color: #fff;
+    margin-top: 10px;
+}
+
+#cashBtn:hover {
+    background-color: black;
+    transition: .4s;
+}
+
+.footer {
+    margin-top: auto;
+}

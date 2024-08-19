@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>공지사항</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/noticeBoardContent.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="header">
+    <div class="header-top">
+        <div class="right">
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <a href="/shop/admin/product/new">상품추가</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <a href="/shop/admin/product">상품관리</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <a href="/shop/admin/users">회원목록</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <span th:text="${session.user.username} + '님'"></span>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <span th:text="'보유금액: ' + ${#numbers.formatInteger(userMoney, 3, 'COMMA')} + '원'"></span>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <span th:text="${session.user.username}"></span>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/noticeBoard">공지사항</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/showReviews">리뷰</a>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <span>
+                    <a href="/shop/cart" id="cart">장바구니
+                    <span th:unless="${cartItems.size() == 0}" th:text="${cartItems.size()}" class="cartSize"></span>
+                    </a>
+                </span>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_USER'}" class="topMenu">
+                <div class="dropdown">
+                    <span>마이페이지</span>
+                    <div class="dropdown-content" id="myPageUser">
+                        <a href="/shop/profile">프로필</a>
+                        <a href="/shop/shoppingList">구매목록</a>
+                        <a href="/shop/logout">로그아웃</a>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" class="topMenu">
+                <div class="dropdown">
+                    <span>마이페이지</span>
+                    <div class="dropdown-content" id="myPageAdmin">
+                        <a href="/shop/profile">프로필</a>
+                        <a href="/shop/admin/salesList">판매목록</a>
+                        <a href="/shop/logout">로그아웃</a>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${session.user == null}" class="topMenu">
+                <a href="/shop/login">로그인</a>
+                <a href="/shop/register">회원가입</a>
+            </div>
+        </div>
+    </div>
+    <div class="header-middle">
+        <div class="top">
+            <a href="/shop" id="home">
+                <i class="fas fa-cookie-bite"></i>
+                <h1>Snack World</h1>
+                <i class="fas fa-ice-cream"></i>
+            </a>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <div class="left">
+            <div class="topMenu">
+                <a href="/shop" id="all">전체</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/popular" class="category">인기상품</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/snack" class="category">과자</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/drink" class="category">음료수</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/iceCream" class="category">아이스크림</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/chicken" class="category">치킨</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/pizza" class="category">피자</a>
+            </div>
+            <div class="topMenu">
+                <a href="/shop/category/hamburger" class="category">햄버거</a>
+            </div>
+            <div class="topMenu">
+                <div class="center">
+                    <form th:action="@{/shop/search}" method="get" id="searchForm">
+                        <input type="text" name="productName" placeholder="Search" id="searchInput">
+                        <button type="submit">
+                            <img src="/img/search.jpg">
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="border-top"></div>
+<div class="container">
+    <h2>공지사항</h2>
+    <div class="btn">
+        <div th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}" style="display: flex">
+            <a th:href="@{/shop/noticeBoard/edit/{id}(id=${noticeBoard.id})}" id="editBtn">수정</a>
+            <form action="/shop/noticeBoard/delete" method="post">
+                <input type="hidden" name="id" th:value="${noticeBoard.id}">
+                <button type="submit" id="delBtn">삭제</button>
+            </form>
+        </div>
+        <a href="/shop/noticeBoard" id="backBtn">목록</a>
+    </div>
+    <div class="content-top">
+        <div th:text="${noticeBoard.author}" class="author"></div>
+        <div th:text="${noticeBoard.title}" class="title"></div>
+        <div class="date">
+            <div th:text="${#temporals.format(noticeBoard.createDate, 'yyyy-MM-dd')}" style="display: flex; flex-direction: column;"></div>
+            <span>
+                <span>조회수</span>
+                <span th:text="${noticeBoard.views}"></span>
+            </span>
+        </div>
+    </div>
+    <div class="content-middle">
+        <span th:text="${noticeBoard.content}" class="content"></span>
+    </div>
+    <div class="content-bottom">
+        <div th:if="${next != null}" class="next">
+            <a th:href="@{/shop/noticeBoard/content/{id}(id=${next.id})}">
+                <span style="margin-left: 10px">다음</span>
+                <span th:text="${next.title}"></span>
+                <span th:text="${#temporals.format(next.createDate, 'yyyy-MM-dd')}" class="createDate"></span>
+            </a>
+        </div>
+        <div th:if="${next == null && prev != null}" class="prev" style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+            <a th:href="@{/shop/noticeBoard/content/{id}(id=${prev.id})}">
+                <span style="margin-left: 10px">이전</span>
+                <span th:text="${prev.title}"></span>
+                <span th:text="${#temporals.format(prev.createDate, 'yyyy-MM-dd')}" class="createDate"></span>
+            </a>
+        </div>
+        <div th:if="${next != null && prev != null}" class="prev" style="border-bottom: 1px solid #ddd;">
+            <a th:href="@{/shop/noticeBoard/content/{id}(id=${prev.id})}">
+                <span style="margin-left: 10px">이전</span>
+                <span th:text="${prev.title}"></span>
+                <span th:text="${#temporals.format(prev.createDate, 'yyyy-MM-dd')}" class="createDate"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>LeeJunHo 2024 SpringBoot SnackMall</p>
+</div>
+</body>
+</html>

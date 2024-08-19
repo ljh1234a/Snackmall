@@ -1,0 +1,142 @@
+.container {
+    flex: 1;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1600px;
+}
+
+.product {
+    padding: 10px;
+    text-align: center;
+    flex: 0 0 calc(25% - 20px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 425px;
+    justify-content: space-between;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    overflow: hidden;
+}
+
+.image-container > a {
+    width: 100%;
+    height: 100%;
+}
+
+.image-container > a > img {
+    width: 300px;
+    height: 300px;
+
+}
+
+.product-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.product-info p {
+    color: #444;
+}
+
+.product-info p:nth-child(1) {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.product-info p:nth-child(2) {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.product-info #addBtn {
+    background-color: #242424;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.product-info #addBtn:hover {
+    background-color: black;
+    transition: .4s;
+}
+
+@media (max-width: 1200px) {
+    .product {
+        flex: 0 0 calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 900px) {
+    .product {
+        flex: 0 0 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .product {
+        flex: 0 0 100%;
+    }
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0 2px;
+    display: inline-block;
+}
+
+.pagination a:hover {
+    opacity: 0.6;
+    transition: .4s;
+}
+
+.pagination .active {
+    background-color: #6CA0DC;
+    color: white;
+    border: 1px solid #6CA0DC;
+}
+
+.pagination .disabled {
+    color: #bbb;
+    border: 1px solid #ddd;
+    cursor: not-allowed;
+}
+
+.fa-star {
+    color: #FFD700;
+}

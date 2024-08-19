@@ -1,0 +1,109 @@
+.container {
+    width: 1000px;
+    padding: 20px 0;
+    margin: 0 auto;
+    position: relative;
+}
+
+.container h2 {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    color: #333;
+}
+
+#write {
+    position: absolute;
+    right: 18px;
+    top: 41px;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #242424;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+#write:hover {
+    border: 1px solid black;
+    transition: .4s;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 15px 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.no {
+    width: 5%;
+    text-align: center;
+}
+
+.title {
+    width: 55%;
+}
+
+.username {
+    width: 15%;
+    text-align: center;
+}
+
+.createDate {
+    width: 15%;
+    text-align: center;
+}
+
+.views {
+    width: 10%;
+    text-align: center;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0 2px;
+    display: inline-block;
+}
+
+.pagination a:hover {
+    opacity: 0.6;
+    transition: .4s;
+}
+
+.pagination .active {
+    background-color: #6CA0DC;
+    color: white;
+    border: 1px solid #6CA0DC;
+}
+
+.pagination .disabled {
+    color: #bbb;
+    border: 1px solid #ddd;
+    cursor: not-allowed;
+}
+
+.footer {
+    margin-top: auto;
+}

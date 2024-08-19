@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+<div class="container">
+    <h1>Snack World</h1>
+    <form th:action="@{/shop/register/sendEmailCode}" method="post" id="sendEmailCodeForm">
+        <div style="display: flex; align-items: flex-start; width: 100%" >
+            <input type="email" id="email" name="email" placeholder="이메일" required style="margin-left: 125px">
+            <button type="submit" id="emailBtn">인증번호 받기</button>
+        </div>
+    </form>
+    <form th:action="@{/shop/register}" method="post" th:object="${userForm}" id="registerForm">
+        <div>
+            <input type="text" id="emailCode" name="emailCode" placeholder="인증번호" required>
+        </div>
+        <div>
+            <input type="text" id="username" name="username" th:field="*{username}" placeholder="이름" required>
+        </div>
+        <div>
+            <input type="text" id="userId" name="userId" th:field="*{userId}" placeholder="아이디" required>
+        </div>
+        <div>
+            <input type="password" id="password" name="password" th:field="*{password}" placeholder="비밀번호" required>
+        </div>
+        <div>
+            <input type="password" id="confirmPassword" name="confirmPassword" th:field="*{confirmPassword}" placeholder="비밀번호 확인" required>
+        </div>
+        <div>
+            <input type="tel" id="tel" name="tel" th:field="*{tel}" placeholder="연락처" required>
+        </div>
+        <div style="display:none;">
+            <input type="hidden" id="registerEmail" name="email" th:field="*{email}">
+        </div>
+        <button type="submit" id="registerBtn" style="position: absolute; bottom: 77px; width: 217px">가입하기</button>
+    </form>
+    <a href="/shop/login" style="position: absolute; bottom: 34px;">로그인</a>
+    <span th:if="${msg}" th:text="${msg}" class="msg"></span>
+</div>
+<script>
+    document.getElementById('sendEmailCodeForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const email = document.getElementById("email").value;
+
+        if (email) {
+            document.getElementById("registerEmail").value = email;
+
+            fetch('/shop/register/sendEmailCode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'email=' + encodeURIComponent(email)
+            })
+            .then(response => response.text())
+            .then(data => alert('인증번호가 발송되었습니다.'))
+            .catch(error => console.error('Error:', error));
+        } else {
+            alert("이메일을 입력하세요.");
+        }
+    });
+</script>
+</body>
+</html>

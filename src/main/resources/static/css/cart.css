@@ -1,0 +1,149 @@
+.container {
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.clearCart {
+    display: flex;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.clearCart > p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+    font-family: Sans-serif;
+    font-weight: bold;
+}
+
+.clearCart > button {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+h1 {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.cart-summary {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 18px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.cart-summary .summary-info {
+    font-size: 18px;
+    text-align: right;
+    margin-right: 10px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    border-bottom: 2px solid #ddd;
+    font-size: 18px;
+    color: #444;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    color: #444;
+}
+
+th:nth-child(1) {
+    width: 60px;
+}
+
+th:nth-child(2), th:nth-child(3) {
+    width: 170px;
+}
+
+th:nth-child(4), th:nth-child(5), th:nth-child(6) {
+    width: 100px;
+}
+
+table img {
+    max-width: 80px;
+    height: auto;
+}
+
+.checkout {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#buySelectedBtn, #buyAllBtn, .clearCartBtn {
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#buySelectedBtn {
+    background-color: #242424;
+    color: #fff;
+}
+
+#buySelectedBtn:hover {
+    background-color: black;
+    transition: .4s;
+}
+
+#buyAllBtn, .clearCartBtn {
+    background-color: #fff;
+    color: #242424;
+    border: 1px solid #ddd;
+}
+
+#buyAllBtn:hover, .clearCartBtn:hover {
+    border: 1px solid black;
+    transition: .4s;
+}
+
+.removeBtn {
+    background: none;
+    border: none;
+    color: #F05650;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.removeBtn:hover {
+    opacity: 0.6;
+    transition: .4s;
+}
+
+.footer {
+    margin-top: auto;
+}

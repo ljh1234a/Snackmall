@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.header {
+    width: 100%;
+}
+
+.header-top {
+    padding: 10px 0;
+    width: 1685px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    text-align: right;
+    color: #333;
+}
+
+.header-middle {
+    padding: 15px 0;
+    background-color: #fff5e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #f5e6e6;
+    border-bottom: 1px solid #f5e6e6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-middle .fa-ice-cream,
+.header-middle .fa-cookie-bite {
+    font-size: 2.5rem;
+    color: #FFA07A;
+}
+
+.header-middle .top > a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0;
+    color: #FFA07A;
+    font-weight: bold;
+}
+
+.header-middle h1 {
+    font-size: 2.5rem;
+    color: #FFA07A;
+    margin: 0 10px;
+}
+
+.header-bottom {
+    display: flex;
+    justify-content: center;
+    width: 1400px;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.header-bottom .topMenu {
+    display: flex;
+    gap: 20px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+    font-size: 14px;
+}
+
+.right .topMenu > a:hover,
+.right .topMenu > span > a:hover,
+#all:hover {
+    opacity: 0.4;
+    transition: .4s;
+}
+
+.topMenu > a,
+.topMenu > span {
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown > span {
+    display: inline-block;
+    padding: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#myPageUser, #myPageAdmin {
+    right: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: 300px;
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1400px;
+    margin: 0 auto;
+    height: 60px;
+}
+
+.left .topMenu {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.left .topMenu #all {
+    color: #555;
+}
+
+.left .topMenu .category {
+    padding: 0 10px;
+    white-space: nowrap;
+    color: #555;
+}
+
+.left .topMenu .category:hover,
+.left .topMenu .category.active {
+    transition: .4s;
+    font-size: 24px;
+    color: #6495ED;
+}
+
+.center {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px auto;
+    width: 200px;
+}
+
+.center form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.center form > input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    height: 40px;
+    box-sizing: border-box;
+    flex: 1;
+    position: absolute;
+    left: 0;
+}
+
+.center form > button {
+    border: none;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    right: 40px;
+}
+
+.center form button img {
+    width: 20px;
+    height: 20px;
+}
+
+.border-top {
+    border-top: 1px solid #EDEDED;
+}
+
+.footer {
+    text-align: center;
+}
+
+.footer p {
+    margin: 20px 0 30px 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.cartSize {
+    background-color: #49D69B;
+    padding: 3px 8px;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: bold;
+}
