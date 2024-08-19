@@ -7,6 +7,8 @@
   - 장바구니, 상품 구매, 마이 페이지에서 구매 내역 조회, 비밀번호 변경, 캐시 충전
 - 비회원
   - 상품 조회, 검색, 리뷰 페이지 조회만 가능
+
+![1.png](https://github.com/ljh1234a/Snackmall/blob/main/1.png)
  
 ## Dependencies
 - Spring Data JDBC
