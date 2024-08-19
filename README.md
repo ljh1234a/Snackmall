@@ -78,6 +78,14 @@
   
 ![6.JPG](https://github.com/ljh1234a/Snackmall/blob/main/6.JPG)
 
+- 상품을 선택하지 않고 구매를 누르면 경고창이 뜹니다.
+
+![12.JPG](https://github.com/ljh1234a/Snackmall/blob/main/12.JPG)
+
+- 구매하려는 상품의 총 가격보다 보유 금액이 적다면 경고창이 뜹니다.
+
+![13.JPG](https://github.com/ljh1234a/Snackmall/blob/main/13.JPG)
+
 - 구매한 상품은 마이 페이지의 구매 목록에 저장됩니다.
   
 ![7.JPG](https://github.com/ljh1234a/Snackmall/blob/main/7.JPG)
