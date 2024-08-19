@@ -26,6 +26,7 @@
 - JDK 버전 : JDK 17
 - 데이터베이스 : MySQL
 - 빌드 도구 : Gradle
+- 관리 도구 : Git, Github
 
 ## 기술 스택
 - 프론트엔드
