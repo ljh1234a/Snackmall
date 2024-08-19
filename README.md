@@ -9,6 +9,7 @@
   - 상품 조회, 검색, 리뷰 페이지 조회만 가능
 
 ![1.png](https://github.com/ljh1234a/Snackmall/blob/main/1.png)
+![2.JPG](https://github.com/ljh1234a/Snackmall/blob/main/2.JPG)
  
 ## Dependencies
 - Spring Data JDBC
