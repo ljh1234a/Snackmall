@@ -44,10 +44,11 @@
 - cart : 장바구니를 이용한 회원
 - cart_item : 장바구니에 등록된 상품
 - shopping_list : 구매 내역, 판매 내역
+- review: 리뷰
 - notice_board : 공지사항 게시판
 
 ## View Page
-**회원가입**
+### 회원가입
 - 이메일 인증이 필수입니다.
 - 이미 가입된 아이디는 사용이 불가능합니다.
 - 비밀번호는 7~15자리로 설정해야 합니다.
@@ -56,17 +57,30 @@
     
 ![2.JPG](https://github.com/ljh1234a/Snackmall/blob/main/2.JPG)
 
-**로그인**
+### 로그인
 - 아이디 또는 비밀번호를 잘못 입력하면 빨간색으로 메시지를 띄웁니다.
     
 ![3.JPG](https://github.com/ljh1234a/Snackmall/blob/main/3.JPG)
 ![4.JPG](https://github.com/ljh1234a/Snackmall/blob/main/4.JPG)
 
-**장바구니, 상품 구매**
-- 상품을 클릭하여 상품을 장바구니에 넣거나 바로 구매할 수 있습니다.
-- 장바구니에서 상품을 구매할 수도 있습니다.
-- 구매한 상품은 구매 목록에 저장됩니다.
-
+### 장바구니
+- 상품을 클릭하여 상품을 장바구니에 넣을 수 있습니다.
+  
 ![5.JPG](https://github.com/ljh1234a/Snackmall/blob/main/5.JPG)
+
+- 장바구니에서 상품을 구매할 수도 있습니다.
+  
 ![6.JPG](https://github.com/ljh1234a/Snackmall/blob/main/6.JPG)
+
+- 구매한 상품은 마이 페이지의 구매 목록에 저장됩니다.
+  
 ![7.JPG](https://github.com/ljh1234a/Snackmall/blob/main/7.JPG)
+
+### 리뷰
+- 상품을 구매한 회원은 구매 목록 페이지에서 리뷰를 작성할 수 있습니다.
+  
+![8.JPG](https://github.com/ljh1234a/Snackmall/blob/main/8.JPG)
+
+- 리뷰 페이지에서 구매자들이 작성한 리뷰를 확인할 수 있습니다.
+
+![9.JPG](https://github.com/ljh1234a/Snackmall/blob/main/9.JPG)
