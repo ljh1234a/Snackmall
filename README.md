@@ -61,3 +61,6 @@
     
 ![3.JPG](https://github.com/ljh1234a/Snackmall/blob/main/3.JPG)
 ![4.JPG](https://github.com/ljh1234a/Snackmall/blob/main/4.JPG)
+
+**장바구니, 상품 구매**
+- 상품을 클릭하여 상품을 장바구니에 넣거나 바로 구매할 수 있습니다.
