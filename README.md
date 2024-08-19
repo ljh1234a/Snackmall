@@ -98,3 +98,10 @@
 - 리뷰 페이지에서 구매자들이 작성한 리뷰를 확인할 수 있습니다.
 
 ![9.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/9.JPG)
+
+### 재고추가
+- 관리자로 로그인하면 홈에서 바로 해당 상품의 재고를 추가할 수 있습니다.
+
+![14.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/14.JPG)
+![15.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/15.JPG)
+![16.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/16.JPG)
