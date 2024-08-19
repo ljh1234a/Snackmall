@@ -27,7 +27,7 @@
   - Password: lee2863!
   - 183.111.242.55:3306
 
-# 데이터베이스 테이블
+# DB Table
 - shop_user
 - product
 - cart
