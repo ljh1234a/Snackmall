@@ -1,6 +1,6 @@
-# SpringBoot Snack World 서비스
+# Spring Boot Snack World 서비스
 
-Snack World는 SpringBoot를 이용하여 만든 사용자가 다양한 스낵(먹거리)을 검색하고 구매할 수 있는 온라인 쇼핑몰 서비스입니다.
+Snack World는 Spring Boot를 이용하여 만든 사용자가 다양한 스낵(먹거리)을 검색하고 구매할 수 있는 온라인 쇼핑몰 서비스입니다.
 
 ## 주요 기능
 - **회원가입**
