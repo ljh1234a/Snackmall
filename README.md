@@ -1,1 +1,1 @@
-#SpringBoot 스낵몰 서비스
+# SpringBoot 스낵몰 서비스
