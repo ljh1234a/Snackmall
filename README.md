@@ -73,6 +73,9 @@
 ![10.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/10.JPG)
 ![11.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/11.JPG)
 
+### 캐시 충전
+- 회원은 금액이 부족하다면 캐시 충전을 할 수 있습니다.
+
 ### 장바구니
 - 상품을 클릭하여 상품을 장바구니에 넣을 수 있습니다.
   
