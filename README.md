@@ -40,13 +40,16 @@
   - 183.111.242.55:3306
 
 ## 데이터베이스 구성
-- shop_user : 회원
-- product : 상품
-- cart : 장바구니를 이용한 회원
-- cart_item : 장바구니에 등록된 상품
-- shopping_list : 구매 내역, 판매 내역
-- review: 리뷰
-- notice_board : 공지사항 게시판
+
+![ER 다이어그램.JPG](https://github.com/ljh1234a/Snackmall/blob/main/img/ER%20%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8.JPG)
+
+- shop_user : 회원 정보 테이블
+- product : 상품 정보 테이블
+- cart : 회원의 장바구니 목록 테이블
+- cart_item : 장바구니에 담긴 상품 정보 테이블
+- shopping_list : 상품 판매내역 테이블
+- review: 리뷰 테이블
+- notice_board : 공지사항 게시판 테이블
 
 ## View Page
 ### 회원가입
