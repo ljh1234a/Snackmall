@@ -122,7 +122,7 @@
     <a href="/shop/changePassword" id="changeBtn">비밀번호 변경</a>
     <div class="profile-info">
         <p>이름 <span th:text="${user.username}"></span></p>
-        <p>아이디 <span th:text="${user.userId}"></span></p>
+        <p>아이디 <span th:text="${user.loginId}"></span></p>
         <p>연락처 <span th:text="${user.tel}"></span></p>
         <p>보유금액
              <span th:if="${user.money < 1000}" th:text="${user.money} + ' 원'"></span>

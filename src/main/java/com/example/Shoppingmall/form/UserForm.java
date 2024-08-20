@@ -14,7 +14,7 @@ public class UserForm {
     @NotBlank
     private String username;
     @NotBlank
-    private String userId;
+    private String loginId;
     @NotBlank
     private String password;
     @NotBlank

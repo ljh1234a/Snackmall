@@ -125,7 +125,7 @@
                 <p>
                     <span th:text="${product.name}" style="font-weight: bold; font-size: 24px;"></span>
                     <i th:if="${product.avrRating}" class="fa-solid fa-star" style="color: #FFD700; font-size: 18px;"></i>
-                    <span th:if="${product.avrRating}" th:text="${product.avrRating}" style="font-size: 21px"></span>
+                    <span th:if="${product.avrRating}" th:text="${#numbers.formatDecimal(product.avrRating, 1, 1)}" style="font-size: 21px"></span>
                 </p>
                 <p th:text="${#numbers.formatInteger(product.price, 3, 'COMMA')} + '원'"></p>
                 <p th:text="'재고: ' + ${product.stock}"></p>

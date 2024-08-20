@@ -104,7 +104,7 @@
         <tr th:each="user : ${users}">
             <td th:text="${user.id}"></td>
             <td th:text="${user.username}"></td>
-            <td th:text="${user.userId}"></td>
+            <td th:text="${user.loginId}"></td>
             <td th:text="${user.password}"></td>
             <td th:text="${user.tel}"></td>
             <td th:if="${user.money < 1000}" th:text="${user.money}"></td>

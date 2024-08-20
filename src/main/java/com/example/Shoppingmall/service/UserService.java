@@ -6,6 +6,6 @@ import org.springframework.data.domain.Pageable;
 
 public interface UserService {
     Page<User> getAllUsers(Pageable pageable);
-    User findByUserId(String userId);
+    User findByLoginId(String loginId);
     void save(User user);
 }

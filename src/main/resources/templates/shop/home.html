@@ -133,7 +133,7 @@
                 </p>
                 <p th:if="${product.avrRating}" style="margin-bottom: 15px;">
                     <i class="fa-solid fa-star"></i>
-                    <span th:text="${product.avrRating}" style="margin-right: 10px"></span>
+                    <span th:text="${#numbers.formatDecimal(product.avrRating, 1, 1)}" style="margin-right: 10px"></span>
                 </p>
                 <a th:if="${session.user != null && session.user.role == 'ROLE_ADMIN'}"
                    th:href="@{/shop/admin/product/addInventory/{id}(id=${product.id})}"

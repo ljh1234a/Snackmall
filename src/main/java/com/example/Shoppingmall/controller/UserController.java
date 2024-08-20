@@ -2,7 +2,6 @@ package com.example.Shoppingmall.controller;
 
 import com.example.Shoppingmall.entity.*;
 import com.example.Shoppingmall.form.*;
-import com.example.Shoppingmall.repository.NoticeBoardRepository;
 import com.example.Shoppingmall.repository.ReviewRepository;
 import com.example.Shoppingmall.repository.ShoppingRepository;
 import com.example.Shoppingmall.repository.UserRepository;
@@ -15,7 +14,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,9 +43,6 @@ public class UserController {
 
     @Autowired
     ReviewRepository reviewRepository;
-
-    @Autowired
-    JavaMailSender mailSender;
 
     @Autowired
     EmailService emailService;
@@ -190,7 +185,7 @@ public class UserController {
             return "register";
         }
 
-        if(userRepository.findByUserId(userForm.getUserId()) != null) {
+        if(userRepository.findByLoginId(userForm.getLoginId()) != null) {
             model.addAttribute("msg", "이미 존재하는 아이디입니다.");
             return "register";
         }
@@ -212,7 +207,7 @@ public class UserController {
 
         User user = new User();
         user.setUsername(userForm.getUsername());
-        user.setUserId(userForm.getUserId());
+        user.setLoginId(userForm.getLoginId());
         user.setPassword(userForm.getPassword());
         user.setConfirmPassword(userForm.getConfirmPassword());
         user.setTel(userForm.getTel());
@@ -251,7 +246,7 @@ public class UserController {
     public String postLogin(@ModelAttribute UserForm userForm,
                             Model model,
                             HttpSession session) {
-        User user = userRepository.findByUserId(userForm.getUserId());
+        User user = userRepository.findByLoginId(userForm.getLoginId());
         if(user != null && user.getPassword().equals(userForm.getPassword())) {
             session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());

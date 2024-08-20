@@ -14,7 +14,7 @@ public class User {
     @Id
     private Integer id;
     private String username;
-    private String userId;
+    private String loginId;
     private String password;
     private String confirmPassword;
     private String email;

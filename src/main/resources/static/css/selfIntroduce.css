@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     color: #21252a;
+    font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -13,14 +14,11 @@ a {
     width: 1200px;
     margin: 0 auto;
     padding: 50px;
+    font-size: 18px;
 }
 
 .intro-container h1 {
     margin-bottom: 15px;
-}
-
-.intro-container h2 {
-    font-weight: normal;
 }
 
 .intro {
@@ -28,6 +26,25 @@ a {
     border-top: 2px solid #21252a;
 }
 
-.intro h3 {
+.intro h2 {
     margin: 20px 0 25px 0;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+}
+
+.project a {
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    width: 450px;
+}
+
+.project a:hover {
+    background-color :#ddd;
+    transition: .4s;
 }
