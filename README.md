@@ -49,7 +49,7 @@
 - cart_item : 장바구니에 담긴 상품 정보 테이블
 - shopping_list : 상품 판매내역 테이블
 - review: 리뷰 테이블
-- notice_board : 공지사항 게시판 테이블
+- notice_board : 공지사항 테이블
 
 ## View Page
 ### 회원가입
